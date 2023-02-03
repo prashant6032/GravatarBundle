@@ -8,7 +8,7 @@ use Ornicar\GravatarBundle\Templating\Helper\GravatarHelperInterface;
  * @author Thibault Duplessis
  * @author Henrik Bjornskov   <hb@peytz.dk>
  */
-class GravatarExtension extends \Twig_Extension implements GravatarHelperInterface
+class GravatarExtension extends \Twig\Extension\AbstractExtension implements GravatarHelperInterface
 {
     /**
      * @var GravatarHelperInterface
@@ -26,11 +26,11 @@ class GravatarExtension extends \Twig_Extension implements GravatarHelperInterfa
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('gravatar', array($this, 'getUrl')),
-            new \Twig_SimpleFunction('gravatar_hash', array($this, 'getUrlForHash')),
-            new \Twig_SimpleFunction('gravatar_profile', array($this, 'getProfileUrl')),
-            new \Twig_SimpleFunction('gravatar_profile_hash', array($this, 'getProfileUrlForHash')),
-            new \Twig_SimpleFunction('gravatar_exists', array($this, 'exists')),
+            new \Twig\TwigFunction('gravatar', array($this, 'getUrl')),
+            new \Twig\TwigFunction('gravatar_hash', array($this, 'getUrlForHash')),
+            new \Twig\TwigFunction('gravatar_profile', array($this, 'getProfileUrl')),
+            new \Twig\TwigFunction('gravatar_profile_hash', array($this, 'getProfileUrlForHash')),
+            new \Twig\TwigFunction('gravatar_exists', array($this, 'exists')),
         );
     }
 
